@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 
 @Component({
   imports: [],
@@ -13,4 +13,23 @@ export class ViewChildDemo {
   showEmployee() {
     console.log(this.employeeName.nativeElement.value);
   }
+
+  @ViewChildren('employee')
+  employees!: QueryList<ElementRef>;
+
+  showEmployees() {
+    this.employees.forEach(employee => {
+      console.log(employee.nativeElement.value);
+    });
+  }
+
 }
+
+
+// @ViewChild     → Gets ONE matching element
+
+// @ViewChildren  → Gets ALL matching elements
+//                   ↓
+//                QueryList
+//                   ↓
+//                forEach()

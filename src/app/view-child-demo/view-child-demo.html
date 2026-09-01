@@ -25,3 +25,44 @@
   </div>
 
 </div>
+
+
+
+<div class="card shadow-sm mt-4">
+
+  <div class="card-header bg-primary text-white">
+    Employee List - ViewChildren
+  </div>
+
+  <div class="card-body">
+
+    <div class="mb-2">
+      <input
+        #employee
+        class="form-control"
+        value="Madan">
+    </div>
+
+    <div class="mb-2">
+      <input
+        #employee
+        class="form-control"
+        value="John">
+    </div>
+
+    <div class="mb-2">
+      <input
+        #employee
+        class="form-control"
+        value="Robert">
+    </div>
+
+    <button
+      class="btn btn-primary mt-2"
+      (click)="showEmployees()">
+      Show Employees
+    </button>
+
+  </div>
+
+</div>
