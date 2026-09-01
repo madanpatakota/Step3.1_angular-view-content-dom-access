@@ -1,7 +1,9 @@
 import {
   Component,
   ContentChild,
-  ElementRef
+  ContentChildren,
+  ElementRef,
+  QueryList
 } from '@angular/core';
 
 @Component({
@@ -17,6 +19,19 @@ export class ContentChildComponent {
 
   showEmployee() {
     console.log(this.employee.nativeElement.textContent);
+  }
+
+
+
+  @ContentChildren('employee')
+  employees!: QueryList<ElementRef>;
+
+  showEmployees() {
+
+    this.employees.forEach(employee => {
+      console.log(employee.nativeElement.textContent);
+    });
+
   }
 
 }
