@@ -1,12 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { Employee } from './employee/employee';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [Employee],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('Step3.1_angular-view-content-dom-access');
+  
 }
