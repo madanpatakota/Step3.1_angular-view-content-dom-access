@@ -1,7 +1,6 @@
-import { Component, signal } from '@angular/core';
-import { SignalContentParentComponent } from './signal-content-parent/signal-content-parent';
+import { Component } from '@angular/core';
 @Component({
-  imports: [SignalContentParentComponent],
+  imports: [],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
