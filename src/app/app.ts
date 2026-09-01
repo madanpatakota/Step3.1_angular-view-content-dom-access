@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
+import { SignalViewDemoComponent } from './signal-view-demo/signal-view-demo';
 @Component({
-  imports: [],
+  imports: [SignalViewDemoComponent],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

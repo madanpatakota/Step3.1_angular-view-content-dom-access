@@ -1,0 +1,86 @@
+<div class="container mt-5">
+
+  <!-- Example 1: viewChild() -->
+  <div class="card shadow-sm mb-4">
+
+    <div class="card-header bg-primary text-white">
+      Example 1 - viewChild()
+    </div>
+
+    <div class="card-body">
+
+      <input
+        #employeeName
+        type="text"
+        class="form-control"
+        value="Madan">
+
+      <button
+        class="btn btn-primary mt-3"
+        (click)="showEmployee()">
+        Show Employee
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- Example 2: viewChild.required() -->
+  <div class="card shadow-sm mb-4">
+
+    <div class="card-header bg-success text-white">
+      Example 2 - viewChild.required()
+    </div>
+
+    <div class="card-body">
+
+      <input
+        #employeeEmail
+        type="text"
+        class="form-control"
+        value="madan@misard.com">
+
+      <button
+        class="btn btn-success mt-3"
+        (click)="showEmail()">
+        Show Email
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- Example 3: viewChildren() -->
+  <div class="card shadow-sm mb-4">
+
+    <div class="card-header bg-dark text-white">
+      Example 3 - viewChildren()
+    </div>
+
+    <div class="card-body">
+
+      <input
+        #employee
+        class="form-control mb-2"
+        value="Madan">
+
+      <input
+        #employee
+        class="form-control mb-2"
+        value="John">
+
+      <input
+        #employee
+        class="form-control mb-2"
+        value="Robert">
+
+      <button
+        class="btn btn-dark mt-2"
+        (click)="showEmployees()">
+        Show All Employees
+      </button>
+
+    </div>
+  </div>
+
+</div>
