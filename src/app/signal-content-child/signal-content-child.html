@@ -1,0 +1,31 @@
+<div class="card shadow-sm">
+
+  <div class="card-header bg-primary text-white">
+    Signal Content Queries
+  </div>
+
+  <div class="card-body">
+
+    <ng-content></ng-content>
+
+    <button
+      class="btn btn-primary me-2"
+      (click)="showEmployee()">
+      contentChild()
+    </button>
+
+    <button
+      class="btn btn-success me-2"
+      (click)="showEmail()">
+      contentChild.required()
+    </button>
+
+    <button
+      class="btn btn-dark"
+      (click)="showEmployees()">
+      contentChildren()
+    </button>
+
+  </div>
+
+</div>

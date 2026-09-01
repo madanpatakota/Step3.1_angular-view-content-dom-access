@@ -1,0 +1,32 @@
+<div class="container mt-5">
+
+  <app-signal-content-child>
+
+    <!-- Example 1: contentChild() -->
+    <p #employeeName class="alert alert-primary">
+      Madan - Software Developer
+    </p>
+
+
+    <!-- Example 2: contentChild.required() -->
+    <p #employeeEmail class="alert alert-success">
+      madan@misard.com
+    </p>
+
+
+    <!-- Example 3: contentChildren() -->
+    <div #employee class="alert alert-secondary">
+      Madan
+    </div>
+
+    <div #employee class="alert alert-secondary">
+      John
+    </div>
+
+    <div #employee class="alert alert-secondary">
+      Robert
+    </div>
+
+  </app-signal-content-child>
+
+</div>
