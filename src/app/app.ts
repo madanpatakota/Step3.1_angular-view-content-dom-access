@@ -1,10 +1,24 @@
 import { Component } from '@angular/core';
+
+import {
+  TraditionalHighlightDirective
+} from './traditional-highlight';
+
+import {
+  ModernHighlightDirective
+} from './modern-highlight';
+
 @Component({
-  imports: [],
   selector: 'app-root',
-  styleUrl: './app.css',
+
+  imports: [
+    TraditionalHighlightDirective,
+    ModernHighlightDirective
+  ],
+
   templateUrl: './app.html',
+  styleUrl: './app.css'
 })
 export class App {
-  
+
 }

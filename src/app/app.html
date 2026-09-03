@@ -1,0 +1,70 @@
+<div class="container mt-5">
+
+  <h2 class="mb-4">
+    Angular Host Element
+  </h2>
+
+  <div class="row g-4">
+
+    <!-- Traditional Approach -->
+    <div class="col-md-6">
+
+      <div class="card shadow-sm">
+
+        <div class="card-header bg-primary text-white">
+          @HostBinding + @HostListener
+        </div>
+
+        <div class="card-body text-center">
+
+          <button
+            appTraditionalHighlight
+            class="btn px-4 py-2">
+
+            Employee Details
+
+          </button>
+
+          <p class="mt-3">
+            Mouse enter, leave and click the button.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Modern Approach -->
+    <div class="col-md-6">
+
+      <div class="card shadow-sm">
+
+        <div class="card-header bg-success text-white">
+          host Property
+        </div>
+
+        <div class="card-body text-center">
+
+          <button
+            appModernHighlight
+            class="btn px-4 py-2">
+
+            Employee Details
+
+          </button>
+
+          <p class="mt-3">
+            Mouse enter, leave and click the button.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
