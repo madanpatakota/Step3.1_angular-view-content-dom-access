@@ -8,7 +8,7 @@ import {
   imports: [],
   templateUrl: './encapsulation-a.html',
   styleUrl: './encapsulation-a.css',
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.None
 })
 export class EncapsulationAComponent {
 
