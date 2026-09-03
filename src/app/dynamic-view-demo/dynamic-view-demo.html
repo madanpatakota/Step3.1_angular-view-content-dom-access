@@ -1,0 +1,148 @@
+<div class="container mt-5">
+
+  <h2 class="mb-4">
+    Template and Dynamic View Examples
+  </h2>
+
+
+
+  <!-- Example 1: ng-template + TemplateRef -->
+  <div class="card shadow-sm mb-4">
+
+    <div class="card-header bg-primary text-white">
+      Example 1 - ngContainerRef
+    </div>
+
+
+    <div class="card-body">
+
+
+      @for(item of numbers ; track $index){
+      <div style="background-color: red; margin: 10px">
+        <p>Hello world {{ item }}</p>
+      </div>
+      }
+
+<!--       
+      @for(item of numbers ; track $index){
+      <ng-container style="background-color: red; margin: 10px">
+        <p>Hello world {{ item }}</p>
+      </ng-container>
+      } -->
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <!-- Example 1: ng-template + TemplateRef -->
+  <div class="card shadow-sm mb-4">
+
+    <div class="card-header bg-primary text-white">
+      Example 1 - TemplateRef
+    </div>
+
+    <div class="card-body">
+
+      <ng-template #employeeTemplate>
+
+        <div class="alert alert-success">
+           Welcome to Misard
+        </div>
+
+      </ng-template>
+
+      <button class="btn btn-primary" (click)="showTemplate()">
+        Show Template
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- Example 2: ViewContainerRef -->
+  <div class="card shadow-sm mb-4">
+
+    <div class="card-header bg-success text-white">
+      Example 2 - ViewContainerRef
+    </div>
+
+    <div class="card-body">
+
+      <p>
+        The template will be dynamically rendered below.
+      </p>
+
+      <ng-container #templateContainer>
+      </ng-container>
+
+      <button class="btn btn-success me-2" (click)="renderTemplate()">
+        Render Employee
+      </button>
+
+      <button class="btn btn-danger" (click)="clearTemplate()">
+        Clear
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- Example 3: ng-container -->
+  <div class="card shadow-sm mb-4">
+
+    <div class="card-header bg-dark text-white">
+      Example 3 - ng-container
+    </div>
+
+    <div class="card-body">
+
+      <ng-container>
+
+        <h5>Employee Information</h5>
+
+        <p class="mb-0">
+          Peter
+        </p>
+
+        <p>
+          Software Developer
+        </p>
+
+      </ng-container>
+
+    </div>
+
+  </div>
+
+
+  <!-- Example 4: Dynamic Component -->
+  <div class="card shadow-sm mb-4">
+
+    <div class="card-header bg-warning">
+      Example 4 - Programmatically Rendering Component
+    </div>
+
+    <div class="card-body">
+
+      <ng-container #componentContainer>
+      </ng-container>
+
+      <button class="btn btn-warning me-2" (click)="loadNotification()">
+        Load Notification
+      </button>
+
+      <button class="btn btn-danger" (click)="removeNotification()">
+        Remove Notification
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
