@@ -1,53 +1,57 @@
 import {
   Component,
-  ElementRef,
+  computed,
   contentChild,
-  contentChildren
+  contentChildren,
+  ElementRef,
+  signal,
 } from '@angular/core';
 
 @Component({
   selector: 'app-signal-content-child',
   imports: [],
   templateUrl: './signal-content-child.html',
-  styleUrl: './signal-content-child.css'
+  styleUrl: './signal-content-child.css',
 })
 export class SignalContentChildComponent {
-
-  // Example 1
+  // Example 1: Optional signal content query
   employeeName =
-    contentChild<ElementRef>('employeeName');
+    contentChild<ElementRef<HTMLElement>>('employeeName');
 
-
-  // Example 2
+  // Example 2: Required signal content query
   employeeEmail =
-    contentChild.required<ElementRef>('employeeEmail');
+    contentChild.required<ElementRef<HTMLElement>>('employeeEmail');
 
-
-  // Example 3
+  // Example 3: Multiple projected elements as a signal
   employees =
-    contentChildren<ElementRef>('employee');
+    contentChildren<ElementRef<HTMLElement>>('employee');
 
+  selectedEmployeeName = signal('');
+  selectedEmployeeEmail = signal('');
+  employeeList = signal<string[]>([]);
+
+  // Automatically changes when projected #employee elements change
+  employeeCount = computed(() => this.employees().length);
 
   showEmployee() {
-    console.log(
-      this.employeeName()?.nativeElement.textContent
-    );
-  }
+    const name =
+      this.employeeName()?.nativeElement.textContent?.trim() ?? '';
 
+    this.selectedEmployeeName.set(name);
+  }
 
   showEmail() {
-    console.log(
-      this.employeeEmail().nativeElement.textContent
-    );
-  }
+    const email =
+      this.employeeEmail().nativeElement.textContent?.trim() ?? '';
 
+    this.selectedEmployeeEmail.set(email);
+  }
 
   showEmployees() {
+    const names = this.employees()
+      .map((employee) => employee.nativeElement.textContent?.trim() ?? '')
+      .filter((name) => name !== '');
 
-    this.employees().forEach(employee => {
-      console.log(employee.nativeElement.textContent);
-    });
-
+    this.employeeList.set(names);
   }
-
 }
