@@ -1,35 +1,40 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  imports: [],
   selector: 'app-view-child-demo',
-  styleUrl: './view-child-demo.css',
+  imports: [CommonModule],
   templateUrl: './view-child-demo.html',
+  styleUrl: './view-child-demo.css',
 })
 export class ViewChildDemo {
   @ViewChild('employeeName')
-  employeeName!: ElementRef;
+  employeeName!: ElementRef<HTMLInputElement>;
+
+  @ViewChildren('employee')
+  employees!: QueryList<ElementRef<HTMLInputElement>>;
+
+  employeeList: string[] = [];
 
   showEmployee() {
     console.log(this.employeeName.nativeElement.value);
   }
 
-  @ViewChildren('employee')
-  employees!: QueryList<ElementRef>;
-
+  //employeeList = [];
   showEmployees() {
-    this.employees.forEach(employee => {
-      console.log(employee.nativeElement.value);
+    
+    
+    this.employees.forEach((employee) => {
+      const name = employee.nativeElement.value.trim();
+
+      if (name) {
+        this.employeeList.push(name);
+      }
     });
   }
 
+
+  ResetEmployees(){
+     this.employeeList = [];
+  }
 }
-
-
-// @ViewChild     → Gets ONE matching element
-
-// @ViewChildren  → Gets ALL matching elements
-//                   ↓
-//                QueryList
-//                   ↓
-//                forEach()
