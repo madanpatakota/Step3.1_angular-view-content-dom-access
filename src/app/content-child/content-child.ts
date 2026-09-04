@@ -3,35 +3,37 @@ import {
   ContentChild,
   ContentChildren,
   ElementRef,
-  QueryList
+  QueryList,
 } from '@angular/core';
 
 @Component({
   selector: 'app-content-child',
   imports: [],
   templateUrl: './content-child.html',
-  styleUrl: './content-child.css'
+  styleUrl: './content-child.css',
 })
 export class ContentChildComponent {
-
   @ContentChild('employee')
-  employee!: ElementRef;
-
-  showEmployee() {
-    console.log(this.employee.nativeElement.textContent);
-  }
-
-
+  employee!: ElementRef<HTMLElement>;
 
   @ContentChildren('employee')
-  employees!: QueryList<ElementRef>;
+  employees!: QueryList<ElementRef<HTMLElement>>;
 
-  showEmployees() {
+  firstEmployeeName = '';
+  employeeList: string[] = [];
 
-    this.employees.forEach(employee => {
-      console.log(employee.nativeElement.textContent);
-    });
+  showEmployee() {
+    this.firstEmployeeName =
+      this.employee.nativeElement.textContent?.trim() ?? '';
 
+    this.employeeList = [];
   }
 
+  showEmployees() {
+    this.employeeList = this.employees
+      .map((employee) => employee.nativeElement.textContent?.trim() ?? '')
+      .filter((name) => name !== '');
+
+    this.firstEmployeeName = '';
+  }
 }

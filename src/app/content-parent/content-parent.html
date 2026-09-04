@@ -1,38 +1,33 @@
 <div class="container mt-5">
+  <h2 class="text-primary mb-4">Content Queries Examples</h2>
 
-  <h2 class="mb-4">Employee Details</h2>
+  <!-- Example 1: ContentChild -->
+  <div class="mb-5">
+    <h4 class="mb-3">Example 1: ContentChild</h4>
 
-  <app-content-child>
+    <app-content-child>
+      <p #employee class="alert alert-success mb-0">
+        Madan - Software Developer
+      </p>
+    </app-content-child>
+  </div>
 
-    <p #employee class="alert alert-success">
-      Madan - Software Developer
-    </p>
+  <!-- Example 2: ContentChildren -->
+  <div class="mb-5">
+    <h4 class="mb-3">Example 2: ContentChildren</h4>
 
-  </app-content-child>
+    <app-content-child>
+      <p #employee class="alert alert-success">
+        Madan - Software Developer
+      </p>
 
-</div>
+      <p #employee class="alert alert-info">
+        John - Angular Developer
+      </p>
 
-
-
-<h2>Example 2 : </h2>
-<div class="container mt-5">
-
-  <h2 class="mb-4">Employee Details</h2>
-
-  <app-content-child>
-
-    <p #employee class="alert alert-success">
-      Madan - Software Developer
-    </p>
-
-    <p #employee class="alert alert-info">
-      John - Angular Developer
-    </p>
-
-    <p #employee class="alert alert-warning">
-      Robert - .NET Developer
-    </p>
-
-  </app-content-child>
-
+      <p #employee class="alert alert-warning mb-0">
+        Robert - .NET Developer
+      </p>
+    </app-content-child>
+  </div>
 </div>
