@@ -1,13 +1,14 @@
 <div class="container mt-5">
+  <h2 class="text-primary mb-4">Signal View Queries</h2>
 
-  <!-- Example 1: viewChild() -->
+  <!-- Example 1 -->
   <div class="card shadow-sm mb-4">
-
     <div class="card-header bg-primary text-white">
-      Example 1 - viewChild()
+      Example 1: viewChild()
     </div>
 
     <div class="card-body">
+      <label class="form-label">Employee Name</label>
 
       <input
         #employeeName
@@ -15,72 +16,101 @@
         class="form-control"
         value="Madan">
 
-      <button
-        class="btn btn-primary mt-3"
-        (click)="showEmployee()">
+      <button class="btn btn-primary mt-3" (click)="showEmployee()">
         Show Employee
       </button>
 
+      @if (selectedEmployeeName()) {
+        <div class="alert alert-primary mt-3 mb-0">
+          <strong>Selected Employee:</strong>
+          {{ selectedEmployeeName() }}
+        </div>
+      }
     </div>
   </div>
 
-
-  <!-- Example 2: viewChild.required() -->
+  <!-- Example 2 -->
   <div class="card shadow-sm mb-4">
-
     <div class="card-header bg-success text-white">
-      Example 2 - viewChild.required()
+      Example 2: viewChild.required()
     </div>
 
     <div class="card-body">
+      <label class="form-label">Employee Email</label>
 
       <input
         #employeeEmail
-        type="text"
+        type="email"
         class="form-control"
         value="madan@misard.com">
 
-      <button
-        class="btn btn-success mt-3"
-        (click)="showEmail()">
+      <button class="btn btn-success mt-3" (click)="showEmail()">
         Show Email
       </button>
 
+      @if (selectedEmployeeEmail()) {
+        <div class="alert alert-success mt-3 mb-0">
+          <strong>Employee Email:</strong>
+          {{ selectedEmployeeEmail() }}
+        </div>
+      }
     </div>
   </div>
 
-
-  <!-- Example 3: viewChildren() -->
+  <!-- Example 3 -->
   <div class="card shadow-sm mb-4">
-
     <div class="card-header bg-dark text-white">
-      Example 3 - viewChildren()
+      Example 3: viewChildren()
     </div>
 
     <div class="card-body">
+      <p class="text-muted">
+        Total employee input elements:
+        <strong>{{ employeeCount() }}</strong>
+      </p>
 
-      <input
-        #employee
-        class="form-control mb-2"
-        value="Madan">
+      <input #employee class="form-control mb-2" value="Madan">
+      <input #employee class="form-control mb-2" value="John">
+      <input #employee class="form-control mb-2" value="Robert">
 
-      <input
-        #employee
-        class="form-control mb-2"
-        value="John">
+      @if (showMoreEmployees()) {
+        <input #employee class="form-control mb-2" value="Peter">
+        <input #employee class="form-control mb-2" value="Robert.JR">
+      }
 
-      <input
-        #employee
-        class="form-control mb-2"
-        value="Robert">
+      <div class="d-flex gap-2 mt-3">
+        @if (!showMoreEmployees()) {
+          <button class="btn btn-outline-dark" (click)="addMoreEmployees()">
+            Add More Employees
+          </button>
+        }
 
-      <button
-        class="btn btn-dark mt-2"
-        (click)="showEmployees()">
-        Show All Employees
-      </button>
+        <button class="btn btn-dark" (click)="showEmployees()">
+          Show All Employees
+        </button>
+      </div>
 
+      @if (employeeList().length > 0) {
+        <div class="table-responsive mt-4">
+          <table class="table table-bordered table-hover mb-0">
+            <thead class="table-dark">
+              <tr>
+                <th class="text-center" style="width: 90px;">S.No</th>
+                <th>Employee Name</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              @for (employeeName of employeeList(); track $index) {
+                <tr>
+                  <td class="text-center">{{ $index + 1 }}</td>
+                  <td>{{ employeeName }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
     </div>
   </div>
-
 </div>
