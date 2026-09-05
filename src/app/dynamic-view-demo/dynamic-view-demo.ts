@@ -1,9 +1,8 @@
 import {
   Component,
-  ElementRef,
   TemplateRef,
   ViewContainerRef,
-  viewChild
+  viewChild,
 } from '@angular/core';
 
 import { NotificationComponent } from '../notification/notification';
@@ -12,74 +11,58 @@ import { NotificationComponent } from '../notification/notification';
   selector: 'app-dynamic-view-demo',
   imports: [],
   templateUrl: './dynamic-view-demo.html',
-  styleUrl: './dynamic-view-demo.css'
+  styleUrl: './dynamic-view-demo.css',
 })
 export class DynamicViewDemoComponent {
-  
-  /*differecen between Div and ngContainer*/
   numbers = [1, 2, 3, 4];
 
+  // ng-template references
+  welcomeTemplate =
+    viewChild.required<TemplateRef<unknown>>('welcomeTemplate');
 
+  loginTemplate =
+    viewChild.required<TemplateRef<unknown>>('loginTemplate');
 
-  // Example 1
-  employeeTemplate =
-    viewChild.required<TemplateRef<any>>('employeeTemplate');
+  employeeFormTemplate =
+    viewChild.required<TemplateRef<unknown>>('employeeFormTemplate');
 
+  // Place where templates will render
+  templateContainer = viewChild.required('templateContainer', {
+    read: ViewContainerRef,
+  });
 
-  // Example 2
-  templateContainer =
-    viewChild.required('templateContainer', {
-      read: ViewContainerRef
-    });
+  // Place where dynamic component will render
+  componentContainer = viewChild.required('componentContainer', {
+    read: ViewContainerRef,
+  });
 
-
-  // Example 4
-  componentContainer =
-    viewChild.required('componentContainer', {
-      read: ViewContainerRef
-    });
-
-
-  showTemplate() {
-
-    console.log(this.employeeTemplate());
-
-  }
-
-
-  renderTemplate() {
-
+  showWelcomeTemplate() {
     this.templateContainer().clear();
-
-    this.templateContainer().createEmbeddedView(
-      this.employeeTemplate()
-    );
-
+    this.templateContainer().createEmbeddedView(this.welcomeTemplate());
   }
 
+  showLoginTemplate() {
+    this.templateContainer().clear();
+    this.templateContainer().createEmbeddedView(this.loginTemplate());
+  }
+
+  showEmployeeFormTemplate() {
+    this.templateContainer().clear();
+    this.templateContainer().createEmbeddedView(
+      this.employeeFormTemplate()
+    );
+  }
 
   clearTemplate() {
-
     this.templateContainer().clear();
-
   }
-
 
   loadNotification() {
-
     this.componentContainer().clear();
-
-    this.componentContainer().createComponent(
-      NotificationComponent
-    );
-
+    this.componentContainer().createComponent(NotificationComponent);
   }
-
 
   removeNotification() {
-
     this.componentContainer().clear();
-
   }
-
 }

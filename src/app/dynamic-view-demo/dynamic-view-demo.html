@@ -1,148 +1,199 @@
 <div class="container mt-5">
-
-  <h2 class="mb-4">
+  <h2 class="mb-4 text-primary">
     Template and Dynamic View Examples
   </h2>
 
-
-
-  <!-- Example 1: ng-template + TemplateRef -->
+  <!-- Example 1: div vs ng-container -->
   <div class="card shadow-sm mb-4">
-
     <div class="card-header bg-primary text-white">
-      Example 1 - ngContainerRef
+      Example 1 - div vs ng-container
     </div>
 
-
     <div class="card-body">
+      <h6>Using div</h6>
 
-
-      @for(item of numbers ; track $index){
-      <div style="background-color: red; margin: 10px">
-        <p>Hello world {{ item }}</p>
-      </div>
+      @for (item of numbers; track $index) {
+        <div class="bg-danger-subtle border border-danger rounded p-2 mb-2">
+          Hello World {{ item }}
+        </div>
       }
 
-<!--       
-      @for(item of numbers ; track $index){
-      <ng-container style="background-color: red; margin: 10px">
-        <p>Hello world {{ item }}</p>
-      </ng-container>
-      } -->
+      <hr>
 
+      <h6>Using ng-container</h6>
+
+      @for (item of numbers; track $index) {
+        <ng-container>
+          <p class="mb-2">Hello World {{ item }}</p>
+        </ng-container>
+      }
     </div>
-
   </div>
 
-
-
-
-
-  <!-- Example 1: ng-template + TemplateRef -->
+  <!-- Example 2: TemplateRef + ViewContainerRef -->
   <div class="card shadow-sm mb-4">
-
-    <div class="card-header bg-primary text-white">
-      Example 1 - TemplateRef
+    <div class="card-header bg-success text-white">
+      Example 2 - Render Different ng-template Content
     </div>
 
     <div class="card-body">
-
-      <ng-template #employeeTemplate>
-
-        <div class="alert alert-success">
-           Welcome to Misard
+      <!-- Template 1 -->
+      <ng-template #welcomeTemplate>
+        <div class="alert alert-success mb-0">
+          <h5>Welcome to MISARD</h5>
+          <p class="mb-0">
+            Be Mad, Step Forward.
+          </p>
         </div>
-
       </ng-template>
 
-      <button class="btn btn-primary" (click)="showTemplate()">
-        Show Template
-      </button>
+      <!-- Template 2 -->
+      <ng-template #loginTemplate>
+        <div class="card border-primary">
+          <div class="card-header bg-primary text-white">
+            Login Form
+          </div>
 
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Enter email address">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Enter password">
+            </div>
+
+            <button class="btn btn-primary">
+              Login
+            </button>
+          </div>
+        </div>
+      </ng-template>
+
+      <!-- Template 3 -->
+      <ng-template #employeeFormTemplate>
+        <div class="card border-dark">
+          <div class="card-header bg-dark text-white">
+            Employee Registration Form
+          </div>
+
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label">Employee Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter employee name">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Department</label>
+
+              <select class="form-select">
+                <option value="">Select department</option>
+                <option>Angular</option>
+                <option>.NET</option>
+                <option>Testing</option>
+                <option>HR</option>
+              </select>
+            </div>
+
+            <div class="form-check mb-3">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="isActive">
+
+              <label class="form-check-label" for="isActive">
+                Employee is active
+              </label>
+            </div>
+
+            <button class="btn btn-dark">
+              Save Employee
+            </button>
+          </div>
+        </div>
+      </ng-template>
+
+      <!-- Dynamic template render location -->
+      <div class="mt-4">
+        <ng-container #templateContainer></ng-container>
+      </div>
+
+      <div class="d-flex flex-wrap gap-2 mt-4">
+        <button
+          class="btn btn-success"
+          (click)="showWelcomeTemplate()">
+          Show Welcome Message
+        </button>
+
+        <button
+          class="btn btn-primary"
+          (click)="showLoginTemplate()">
+          Show Login Form
+        </button>
+
+        <button
+          class="btn btn-dark"
+          (click)="showEmployeeFormTemplate()">
+          Show Employee Form
+        </button>
+
+        <button
+          class="btn btn-outline-danger"
+          (click)="clearTemplate()">
+          Clear
+        </button>
+      </div>
     </div>
-
   </div>
-
-
-  <!-- Example 2: ViewContainerRef -->
-  <div class="card shadow-sm mb-4">
-
-    <div class="card-header bg-success text-white">
-      Example 2 - ViewContainerRef
-    </div>
-
-    <div class="card-body">
-
-      <p>
-        The template will be dynamically rendered below.
-      </p>
-
-      <ng-container #templateContainer>
-      </ng-container>
-
-      <button class="btn btn-success me-2" (click)="renderTemplate()">
-        Render Employee
-      </button>
-
-      <button class="btn btn-danger" (click)="clearTemplate()">
-        Clear
-      </button>
-
-    </div>
-
-  </div>
-
 
   <!-- Example 3: ng-container -->
   <div class="card shadow-sm mb-4">
-
     <div class="card-header bg-dark text-white">
       Example 3 - ng-container
     </div>
 
     <div class="card-body">
-
       <ng-container>
-
         <h5>Employee Information</h5>
-
-        <p class="mb-0">
-          Peter
-        </p>
-
-        <p>
-          Software Developer
-        </p>
-
+        <p class="mb-1">Peter</p>
+        <p class="mb-0">Software Developer</p>
       </ng-container>
-
     </div>
-
   </div>
-
 
   <!-- Example 4: Dynamic Component -->
   <div class="card shadow-sm mb-4">
-
     <div class="card-header bg-warning">
       Example 4 - Programmatically Rendering Component
     </div>
 
     <div class="card-body">
+      <ng-container #componentContainer></ng-container>
 
-      <ng-container #componentContainer>
-      </ng-container>
+      <div class="mt-3">
+        <button
+          class="btn btn-warning me-2"
+          (click)="loadNotification()">
+          Load Notification
+        </button>
 
-      <button class="btn btn-warning me-2" (click)="loadNotification()">
-        Load Notification
-      </button>
-
-      <button class="btn btn-danger" (click)="removeNotification()">
-        Remove Notification
-      </button>
-
+        <button
+          class="btn btn-danger"
+          (click)="removeNotification()">
+          Remove Notification
+        </button>
+      </div>
     </div>
-
   </div>
-
 </div>
