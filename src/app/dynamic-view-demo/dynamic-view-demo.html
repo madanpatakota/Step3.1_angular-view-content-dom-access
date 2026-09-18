@@ -30,10 +30,25 @@
     </div>
   </div>
 
-  <!-- Example 2: TemplateRef + ViewContainerRef -->
+  <!-- Example 2: ng-container -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-header bg-dark text-white">
+      Example 2 - ng-container
+    </div>
+
+    <div style="background-color: yellow;" class="card-body">
+      <ng-container>
+        <h5>Employee Information</h5>
+        <p class="mb-1">Peter</p>
+        <p class="mb-0">Software Developer</p>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Example 3: TemplateRef + ViewContainerRef -->
   <div class="card shadow-sm mb-4">
     <div class="card-header bg-success text-white">
-      Example 2 - Render Different ng-template Content
+      Example 3 - Render Different ng-template Content
     </div>
 
     <div class="card-body">
@@ -154,21 +169,6 @@
           Clear
         </button>
       </div>
-    </div>
-  </div>
-
-  <!-- Example 3: ng-container -->
-  <div class="card shadow-sm mb-4">
-    <div class="card-header bg-dark text-white">
-      Example 3 - ng-container
-    </div>
-
-    <div class="card-body">
-      <ng-container>
-        <h5>Employee Information</h5>
-        <p class="mb-1">Peter</p>
-        <p class="mb-0">Software Developer</p>
-      </ng-container>
     </div>
   </div>
 
