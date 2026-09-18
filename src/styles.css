@@ -1,5 +1,7 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 p{
-    color : green;
+    color : blue;
+    font-weight: bold;
+    font-size: 50px;
 }

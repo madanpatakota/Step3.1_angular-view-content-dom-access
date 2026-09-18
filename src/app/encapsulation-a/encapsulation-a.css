@@ -1,11 +1,13 @@
+/* @import "bootstrap/dist/css/bootstrap.min.css"; */
+
 p {
-  /* background-color: yellow; */
+  background-color: yellow;
   padding: 15px;
 }
 
 
 button {
-  background-color: red;
+  background-color: green;
   color: white;
   padding: 10px 30px;
   border: none;
