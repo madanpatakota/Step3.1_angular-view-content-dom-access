@@ -1,0 +1,129 @@
+<div class="container py-4">
+
+  <div class="card shadow-sm mb-4">
+
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">
+        Angular View, Content & DOM Access
+      </h4>
+    </div>
+
+    <div class="card-body">
+
+      <label class="form-label fw-bold">
+        Select Example
+      </label>
+
+      <select
+        class="form-select"
+        [value]="selectedExample()"
+        (change)="changeExample($event)">
+
+        <option value="01">
+          01 - View & Content Basics
+        </option>
+
+        <option value="02">
+          02 - ViewChild & ElementRef
+        </option>
+
+        <option value="03">
+          03 - Content Queries
+        </option>
+
+        <option value="04">
+          04 - Signal View Queries
+        </option>
+
+        <option value="05">
+          05 - Signal Content Queries
+        </option>
+
+        <option value="06">
+          06 - Template & Dynamic Views
+        </option>
+
+        <option value="07">
+          07 - View Encapsulation
+        </option>
+
+        <option value="08">
+          08 - Host Element
+        </option>
+
+      </select>
+
+    </div>
+
+  </div>
+
+
+  <!-- Selected Example Output -->
+
+  @switch (selectedExample()) {
+
+    @case ('01') {
+
+      <app-view-content-basics />
+
+    }
+
+    @case ('02') {
+
+      <div class="alert alert-secondary">
+        02 - ViewChild & ElementRef will be added next.
+      </div>
+
+    }
+
+    @case ('03') {
+
+      <div class="alert alert-secondary">
+        03 - Content Queries will be added later.
+      </div>
+
+    }
+
+    @case ('04') {
+
+      <div class="alert alert-secondary">
+        04 - Signal View Queries will be added later.
+      </div>
+
+    }
+
+    @case ('05') {
+
+      <div class="alert alert-secondary">
+        05 - Signal Content Queries will be added later.
+      </div>
+
+    }
+
+    @case ('06') {
+
+      <div class="alert alert-secondary">
+        06 - Template & Dynamic Views will be added later.
+      </div>
+
+    }
+
+    @case ('07') {
+
+      <div class="alert alert-secondary">
+        07 - View Encapsulation will be added later.
+      </div>
+
+    }
+
+    @case ('08') {
+
+      <div class="alert alert-secondary">
+        08 - Host Element will be added later.
+      </div>
+
+    }
+
+  }
+
+</div>
