@@ -8,6 +8,8 @@ import { SignalViewDemoComponent }
   from './demos/signalviewqueries/signal-view-demo';
   import { SignalContentParentComponent }
   from './demos/05-signal-content-quiries/signal-content-parent/signal-content-parent'
+  import { DynamicViewDemoComponent }
+  from './demos/templatedynamicviews/dynamic-view-demo/dynamic-view-demo';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +18,8 @@ import { SignalViewDemoComponent }
     ViewChildDemo,
     ContentParent,
     SignalViewDemoComponent,
-    SignalContentParentComponent
+    SignalContentParentComponent,
+    DynamicViewDemoComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
