@@ -6,6 +6,8 @@ import { ViewContentBasics } from './demos/01-view-content-basics/view-content-b
 import { ContentParent } from './demos/contentqueries/content-parent/content-parent';
 import { SignalViewDemoComponent }
   from './demos/signalviewqueries/signal-view-demo';
+  import { SignalContentParentComponent }
+  from './demos/05-signal-content-quiries/signal-content-parent/signal-content-parent'
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,8 @@ import { SignalViewDemoComponent }
     ViewContentBasics,
     ViewChildDemo,
     ContentParent,
-    SignalViewDemoComponent
+    SignalViewDemoComponent,
+    SignalContentParentComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
