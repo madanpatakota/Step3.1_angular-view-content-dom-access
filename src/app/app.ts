@@ -11,6 +11,9 @@ import { SignalViewDemoComponent }
   import { DynamicViewDemoComponent }
   from './demos/templatedynamicviews/dynamic-view-demo/dynamic-view-demo';
 
+  import { ViewEncapsulationDemoComponent }
+  from './demos/viewencapsulation/view-encapsulation-demo';
+
 @Component({
   selector: 'app-root',
   imports: [
@@ -19,7 +22,8 @@ import { SignalViewDemoComponent }
     ContentParent,
     SignalViewDemoComponent,
     SignalContentParentComponent,
-    DynamicViewDemoComponent
+    DynamicViewDemoComponent,
+    ViewEncapsulationDemoComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
