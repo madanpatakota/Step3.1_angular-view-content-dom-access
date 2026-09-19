@@ -14,6 +14,9 @@ import { SignalViewDemoComponent }
   import { ViewEncapsulationDemoComponent }
   from './demos/viewencapsulation/view-encapsulation-demo';
 
+  import { HostElementDemoComponent }
+  from './demos/hostelement/host-element-demo';
+
 @Component({
   selector: 'app-root',
   imports: [
@@ -23,7 +26,8 @@ import { SignalViewDemoComponent }
     SignalViewDemoComponent,
     SignalContentParentComponent,
     DynamicViewDemoComponent,
-    ViewEncapsulationDemoComponent
+    ViewEncapsulationDemoComponent,
+    HostElementDemoComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'

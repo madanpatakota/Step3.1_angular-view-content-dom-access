@@ -59,69 +59,56 @@
 
 
   <!-- Selected Example Output -->
+@switch (selectedExample()) {
 
-  @switch (selectedExample()) {
-
-    @case ('01') {
-
+  @case ('01') {
+    <div class="border rounded p-3">
       <app-view-content-basics />
-
-    }
-
-    @case ('02') {
-
-      <app-view-child-demo />
-
-    }
-
-    @case ('03') {
-
-      <div class="alert alert-secondary">
-         <app-content-parent />
-      </div>
-
-    }
-
-    @case ('04') {
-
-      <div class="alert alert-secondary">
-        <app-signal-view-demo />
-      </div>
-
-    }
-
-    @case ('05') {
-
-      <div class="alert alert-secondary">
-         <app-signal-content-parent />
-      </div>
-
-    }
-
-    @case ('06') {
-
-      <div class="alert alert-secondary">
-        <app-dynamic-view-demo></app-dynamic-view-demo>
-      </div>
-
-    }
-
-    @case ('07') {
-
-      <div class="alert alert-secondary">
-       <app-view-encapsulation-demo></app-view-encapsulation-demo>
-      </div>
-
-    }
-
-    @case ('08') {
-
-      <div class="alert alert-secondary">
-        08 - Host Element will be added later.
-      </div>
-
-    }
-
+    </div>
   }
+
+  @case ('02') {
+    <div class="border rounded p-3">
+      <app-view-child-demo />
+    </div>
+  }
+
+  @case ('03') {
+    <div class="border rounded p-3">
+      <app-content-parent />
+    </div>
+  }
+
+  @case ('04') {
+    <div class="border rounded p-3">
+      <app-signal-view-demo />
+    </div>
+  }
+
+  @case ('05') {
+    <div class="border rounded p-3">
+      <app-signal-content-parent />
+    </div>
+  }
+
+  @case ('06') {
+    <div class="border rounded p-3">
+      <app-dynamic-view-demo />
+    </div>
+  }
+
+  @case ('07') {
+    <div class="border rounded p-3">
+      <app-view-encapsulation-demo />
+    </div>
+  }
+
+  @case ('08') {
+    <div class="border rounded p-3">
+      <app-host-element-demo />
+    </div>
+  }
+
+}
 
 </div>
